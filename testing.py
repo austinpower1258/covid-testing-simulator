@@ -91,3 +91,5 @@ def pool_testing(people):
         pool_testing(group2)
     #return reagents at the end - should give us our answer
     return reagents
+
+print(pool_testing(cases))
