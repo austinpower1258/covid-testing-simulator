@@ -27,7 +27,7 @@
 # checking the length if the group is more than length 1 and there is a positive pooled test, and 
 # this can determine which groups that we need to add together (form a new group of ½ the size). 
 # We can then pass these new groups into the recursive function, where it will keep on going until 
-# the pool tests are negative or when the array length is 1.
+# the pool tests are negative or when the array length is 1. Assumptions: ratio of infected is 1%.
 
 import random
 import math
@@ -51,7 +51,7 @@ def generate_sample_cases(ratio, population):
     return list
 
 #generate the array
-cases = generate_sample_cases(0.01, 2195)
+cases = generate_sample_cases(0.01, 3000)
 print(cases)
 
 #declare a variable reagants (number of reagants)
