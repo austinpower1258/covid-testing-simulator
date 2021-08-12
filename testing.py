@@ -35,15 +35,15 @@ import math
 #generate an array of n population of people
 # 1 denotes infected, 0 denotes healthy
 #ratio defines the COVID-infected rate
-def generateSampleCases(ratio, population):
-    list = [];
-    infectedNumber = int(ratio * population)
-    healthyNumber = int((1 - ratio) * population)
+def generate_sample_cases(ratio, population):
+    list = []
+    infected_number = int(ratio * population)
+    healthy_number = int((1 - ratio) * population)
     #in order to insert a ratio of infected people
-    for i in range (0, infectedNumber):
+    for i in range (0, infected_number):
         list.append(1)
     #in order to insert a ratio of healthy people
-    for j in range (0, healthyNumber):
+    for j in range (0, healthy_number):
         list.append(0)
 
     #shuffles the list to random order
@@ -51,12 +51,13 @@ def generateSampleCases(ratio, population):
     return list
 
 #generate the array
-cases = generateSampleCases(0.01, 2195)
+cases = generate_sample_cases(0.01, 2195)
+print(cases)
 
 #declare a variable reagants (number of reagants)
 reagants = 0
 
-def poolTesting(people):
+def pool_testing(people):
     positive = False
     #in recursive functions, we need to store a global variable
     #we cannot initialize it inside the function
@@ -81,14 +82,14 @@ def poolTesting(people):
         for i in range(0, int(len(people)/2)):
             group1.append(people[i])
         #branch out the recursion
-        poolTesting(group1)
+        pool_testing(group1)
 
         #likewise for the second branch of groups
         for j in range(int(len(people)/2), int(len(people))):
             group2.append(people[j])
 
-        poolTesting(group2)
+        pool_testing(group2)
     #return reagants at the end - should give us our answer
     return reagants
 
-print(poolTesting(cases))
+print(pool_testing(cases))
