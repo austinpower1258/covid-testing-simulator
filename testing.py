@@ -54,18 +54,18 @@ def generate_sample_cases(ratio, population):
 cases = generate_sample_cases(0.01, 3000)
 print(cases)
 
-#declare a variable reagants (number of reagants)
-reagants = 0
+#declare a variable reagents (number of reagents)
+reagents = 0
 
 def pool_testing(people):
     positive = False
     #in recursive functions, we need to store a global variable
     #we cannot initialize it inside the function
-    global reagants
+    global reagents
 
-    #increment reagants everytime the function is run
+    #increment reagents everytime the function is run
     #since this is recursive
-    reagants += 1
+    reagents += 1
 
     #since we are branching by 2, we need to initialize 2 arrays
     group1 = []
@@ -89,7 +89,5 @@ def pool_testing(people):
             group2.append(people[j])
 
         pool_testing(group2)
-    #return reagants at the end - should give us our answer
-    return reagants
-
-print(pool_testing(cases))
+    #return reagents at the end - should give us our answer
+    return reagents
